@@ -10,13 +10,9 @@ init(autoreset=True)
 DB_FOLDER = "databases"
 os.makedirs(DB_FOLDER, exist_ok=True)
 
-# ─── ESTADO GLOBAL ─────────────────────────────────────────────────────────────
-
 conn    = None
 cursor  = None
 DB_NAME = None
-
-# ─── UTILIDADES ────────────────────────────────────────────────────────────────
 
 def limpiar():
     os.system("cls" if os.name == "nt" else "clear")
@@ -59,7 +55,6 @@ def seleccionar_tabla():
     print(Fore.RED + f"La tabla '{entrada}' no existe.")
     return None
 
-# ─── DATABASE MANAGER ──────────────────────────────────────────────────────────
 
 def listar_bases():
     return sorted(glob.glob(os.path.join(DB_FOLDER, "*.db")))
@@ -186,8 +181,6 @@ def menu_database_manager():
         except KeyboardInterrupt:
             salir()
 
-# ─── MENÚ CRUD ─────────────────────────────────────────────────────────────────
-
 def menu():
     limpiar()
     cabecera_db()
@@ -219,8 +212,6 @@ def menu():
         "[16] Salir\n"
         ">> "
     )
-
-# ─── OPERACIONES ────────────────────────────────────────────────────────────────
 
 def crear_tabla():
     nombre = input(Fore.CYAN + "Nombre de la nueva tabla: ").strip()
@@ -486,8 +477,6 @@ def mostrar_todas_las_tablas():
             cursor.execute(f'SELECT COUNT(*) FROM "{t}"')
             n = cursor.fetchone()[0]
             print(Fore.WHITE + f"  - {t}  ({n} filas)")
-
-# ─── BUCLE PRINCIPAL ────────────────────────────────────────────────────────────
 
 def salir():
     print(Fore.RED + "\n\nSaliendo del programa... Hasta luego!")
