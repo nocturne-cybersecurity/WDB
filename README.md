@@ -1,5 +1,5 @@
 # WSQL - SQLite Database Manager
-
+![WDB](images/WDB.png)
 Una aplicación de consola interactiva para gestionar bases de datos SQLite con una interfaz CRUD completa.
 
 ## Características
@@ -16,7 +16,7 @@ Una aplicación de consola interactiva para gestionar bases de datos SQLite con 
 
 1. Clona el repositorio:
 ```bash
-git clone <repository-url>
+git clone https://github.com/nocturne-cybersecurity/WDB.git
 cd WSQL
 ```
 
@@ -37,6 +37,11 @@ pip install -r requirements.txt
 ## Uso
 
 Ejecuta la aplicación principal:
+```bash
+python3 main.py
+```
+
+Si no funciona python3:
 ```bash
 python main.py
 ```
