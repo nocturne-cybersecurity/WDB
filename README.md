@@ -148,3 +148,5 @@ Este proyecto es de código abierto y está disponible bajo la Licencia MIT.
 ## Autor
 
 Desarrollado como una herramienta de gestión de bases de datos SQLite con interfaz de consola moderna.
+NO quiero que las personas solo usen estas herramientas para facilitar su trabajo y hacerlo rapido,
+sino también que entiendan el codigo y como funcionan.
