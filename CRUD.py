@@ -14,7 +14,7 @@ conn    = None
 cursor  = None
 DB_NAME = None
 
-def limpiar():
+def limpiar(): #este es obligatorio
     os.system("cls" if os.name == "nt" else "clear")
 
 def pausar():
@@ -192,7 +192,7 @@ def menu():
         sys.stdout.flush()
     print(Fore.GREEN + "\rCRUD Cargado               ")
     print(Fore.BLUE + "-" * 43)
-
+#Me gusta hacer este tipo de menus
     return input(Fore.CYAN +
         "[1]  Crear tabla\n"
         "[2]  Agregar columna\n"
@@ -438,7 +438,7 @@ def eliminar_columna():
         print(Fore.RED + f"Error: {e}")
 
 
-def eliminar_base_de_datos():
+def eliminar_base_de_datos(): #Futuro: agregar advertencia y confirmar
     confirm = input(Fore.RED + f"Vaciar TODA la base de datos '{os.path.basename(DB_NAME)}'? (escribe 'CONFIRMAR'): ").strip()
     if confirm == "CONFIRMAR":
         cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
