@@ -20,7 +20,7 @@ def limpiar():
 def pausar():
     input(Fore.YELLOW + "\nPresiona Enter para continuar...")
     limpiar()
-
+#titulos
 def cabecera_db():
     nombre = os.path.basename(DB_NAME) if DB_NAME else "Sin base de datos"
     print(Fore.BLUE  + "=" * 43)
@@ -116,7 +116,7 @@ def menu_database_manager():
         ans = input(Fore.CYAN + ">> ").strip().upper()
 
         try:
-            if ans == "N":
+            if ans == "N": #nombre
                 nombre = input(Fore.CYAN + "Nombre de la nueva base de datos: ").strip()
                 if not nombre:
                     print(Fore.RED + "Nombre invalido."); pausar(); continue
@@ -158,7 +158,7 @@ def menu_database_manager():
                         conn.close()
                         conn = cursor = None; DB_NAME = None
                     os.remove(b)
-                    print(Fore.GREEN + "Eliminada OK")
+                    print(Fore.GREEN + "Eliminada")
                 pausar()
 
             elif ans == "V":
@@ -212,7 +212,7 @@ def menu():
         "[16] Salir\n"
         ">> "
     )
-
+#crear tablas (mi prima es una tabla)
 def crear_tabla():
     nombre = input(Fore.CYAN + "Nombre de la nueva tabla: ").strip()
     if not nombre:
@@ -322,7 +322,7 @@ def agregar_texto():
     except Exception as e:
         print(Fore.RED + f"Error: {e}")
 
-
+#reecribir
 def reescribir_texto():
     tabla = seleccionar_tabla()
     if not tabla: return
@@ -336,7 +336,7 @@ def reescribir_texto():
         )
         conn.commit()
         if cursor.rowcount:
-            print(Fore.GREEN + "Valor actualizado OK")
+            print(Fore.GREEN + "Valor actualizado")
         else:
             print(Fore.YELLOW + "No se encontro la fila con ese id.")
     except Exception as e:
@@ -378,7 +378,7 @@ def mostrar_tabla():
     except Exception as e:
         print(Fore.RED + f"Error: {e}")
 
-
+#Sinceramente... a mí no me gusta borrar tablas en bases de datos
 def eliminar_tabla():
     tabla = seleccionar_tabla()
     if not tabla: return
@@ -486,7 +486,7 @@ def salir():
 
 def CRUD():
     while True:
-        try:
+        try: #fukin menu
             ans = menu()
 
             if   ans == "1":  crear_tabla()
@@ -512,7 +512,7 @@ def CRUD():
 
         except KeyboardInterrupt:
             salir()
-
+#init
 if __name__ == "__main__":
     try:
         menu_database_manager()
