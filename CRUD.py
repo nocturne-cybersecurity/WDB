@@ -144,7 +144,7 @@ def menu_database_manager():
                     conn.close()
                     conn = cursor = None; DB_NAME = None
                 os.rename(b, nueva_ruta)
-                print(Fore.GREEN + f"Renombrada a '{nuevo}' OK")
+                print(Fore.GREEN + f"Renombrada a '{nuevo}'")
                 pausar()
 
             elif ans == "X":
@@ -171,7 +171,7 @@ def menu_database_manager():
                 idx = int(ans) - 1
                 if 0 <= idx < len(bases):
                     abrir_db(bases[idx])
-                    print(Fore.GREEN + f"Abriendo '{os.path.basename(bases[idx])}' OK")
+                    print(Fore.GREEN + f"Abriendo '{os.path.basename(bases[idx])}'")
                     pausar()
                 else:
                     print(Fore.RED + "Numero fuera de rango."); pausar()
@@ -190,7 +190,7 @@ def menu():
         time.sleep(0.05)
         sys.stdout.write(Fore.RED + "\rCargando CRUD " + animation[i % len(animation)])
         sys.stdout.flush()
-    print(Fore.GREEN + "\rCRUD Cargado OK              ")
+    print(Fore.GREEN + "\rCRUD Cargado               ")
     print(Fore.BLUE + "-" * 43)
 
     return input(Fore.CYAN +
@@ -230,7 +230,7 @@ def crear_tabla():
             )
         """)
         conn.commit()
-        print(Fore.GREEN + f"Tabla '{nombre}' creada correctamente OK")
+        print(Fore.GREEN + f"Tabla '{nombre}' creada correctamente")
     except Exception as e:
         print(Fore.RED + f"Error: {e}")
 
@@ -243,7 +243,7 @@ def agregar_columna():
     try:
         cursor.execute(f'ALTER TABLE "{tabla}" ADD COLUMN "{columna}" {tipo}')
         conn.commit()
-        print(Fore.GREEN + f"Columna '{columna}' agregada a '{tabla}' OK")
+        print(Fore.GREEN + f"Columna '{columna}' agregada a '{tabla}'")
     except Exception as e:
         print(Fore.RED + f"Error: {e}")
 
@@ -316,7 +316,7 @@ def agregar_texto():
         )
         conn.commit()
         if cursor.rowcount:
-            print(Fore.GREEN + "Texto agregado OK")
+            print(Fore.GREEN + "Texto agregado")
         else:
             print(Fore.YELLOW + "No se encontro la fila con ese id.")
     except Exception as e:
@@ -387,7 +387,7 @@ def eliminar_tabla():
         try:
             cursor.execute(f'DROP TABLE IF EXISTS "{tabla}"')
             conn.commit()
-            print(Fore.GREEN + f"Tabla '{tabla}' eliminada OK")
+            print(Fore.GREEN + f"Tabla '{tabla}' eliminada")
         except Exception as e:
             print(Fore.RED + f"Error: {e}")
 
@@ -400,7 +400,7 @@ def eliminar_fila():
         cursor.execute(f'DELETE FROM "{tabla}" WHERE id = ?', (id_fila,))
         conn.commit()
         if cursor.rowcount:
-            print(Fore.GREEN + f"Fila {id_fila} eliminada OK")
+            print(Fore.GREEN + f"Fila {id_fila} eliminada")
         else:
             print(Fore.YELLOW + "No se encontro esa fila.")
     except Exception as e:
@@ -445,7 +445,7 @@ def eliminar_base_de_datos():
         for (t,) in cursor.fetchall():
             cursor.execute(f'DROP TABLE IF EXISTS "{t}"')
         conn.commit()
-        print(Fore.GREEN + "Base de datos vaciada OK")
+        print(Fore.GREEN + "Base de datos vaciada")
     else:
         print(Fore.YELLOW + "Operacion cancelada.")
 
@@ -464,7 +464,7 @@ def configurar_base_de_datos():
         print(Fore.GREEN + "Foreign keys activadas OK")
     elif toggle == "2":
         cursor.execute("PRAGMA foreign_keys = OFF")
-        print(Fore.GREEN + "Foreign keys desactivadas OK")
+        print(Fore.GREEN + "Foreign keys desactivadas")
 
 
 def mostrar_todas_las_tablas():
