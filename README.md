@@ -20,6 +20,17 @@ git clone https://github.com/nocturne-cybersecurity/WDB.git
 cd WSQL
 ```
 
+Instala python si aún no lo tienes:
+Linux:
+```bash
+sudo apt install python3
+```
+Windows:
+```bash
+winget install Python.Python.3
+```
+
+
 2. Crea un entorno virtual:
 ```bash
 python -m venv .venv
